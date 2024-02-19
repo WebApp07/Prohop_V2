@@ -9,6 +9,8 @@ import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 
 const port = process.env.PORT || 5000;
 
+connectDB();
+
 const app = express();
 
 // Body parser middleware
@@ -17,12 +19,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Cookie Parser Middleware
 app.use(cookieParser());
-
-connectDB();
-
-app.get("/", (req, res) => {
-  res.send("API is running...");
-});
 
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
