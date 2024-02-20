@@ -5,8 +5,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation({
       query: (data) => ({
-        // eslint-disable-next-line no-undef
-        url: USERS_URL / auth,
+        url: `${USERS_URL}/auth`,
         method: "POST",
         body: data,
       }),
@@ -14,4 +13,4 @@ export const userApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const { userLoginMutation } = userApiSlice;
+export const { useLoginMutation } = userApiSlice;
