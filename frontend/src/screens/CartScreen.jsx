@@ -30,7 +30,7 @@ const CartScreen = () => {
   };
 
   const checkoutHandler = async () => {
-    navigate("/login?redirect=shipping");
+    navigate("/login?redirect=/shipping");
   };
 
   return (
