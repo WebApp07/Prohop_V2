@@ -52,6 +52,8 @@ const registerUser = asyncHandler(async (req, res) => {
       email: user.email,
       isAdmin: user.isAdmin,
     });
+    await user.save();
+    res.status(201).json(user);
   } else {
     res.status(400);
     throw new Error("Invalid user data");
