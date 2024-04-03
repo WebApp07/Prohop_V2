@@ -103,6 +103,7 @@ const PlaceOrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items:</Col>
+                  {console.log(cart.itemsPrice)}
                   <Col>${cart.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
