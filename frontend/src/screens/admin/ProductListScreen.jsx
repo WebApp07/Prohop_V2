@@ -1,6 +1,6 @@
 import { LinkContainer } from "react-router-bootstrap";
 import { Table, Button, Row, Col } from "react-bootstrap";
-import { FaTimes, FaEdit, FaTrash } from "react-icons/fa";
+import { FaTimes, FaEdit, FaTrash, IoIosAdd } from "react-icons/fa";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 import {
@@ -10,7 +10,7 @@ import {
 import { toast } from "react-toastify";
 
 const ProductListScreen = () => {
-  const { data: prodcuts, refetch, isLoading, error } = useGetProductsQuery();
+  const { data: products, refetch, isLoading, error } = useGetProductsQuery();
 
   const [createProduct, { isLoading: loadingCreate }] =
     useCreateProductMutation();
@@ -46,10 +46,10 @@ const ProductListScreen = () => {
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <Message variant="danger"></Message>
+        <Message variant="danger">{error}</Message>
       ) : (
         <>
-          <Table striped hover responsive className="table-sm">
+          <Table striped bordered hover responsive className="table-sm">
             <thead>
               <tr>
                 <th>ID</th>
@@ -61,7 +61,7 @@ const ProductListScreen = () => {
               </tr>
             </thead>
             <tbody>
-              {prodcuts.map((product) => (
+              {products.map((product) => (
                 <tr key={product._id}>
                   <td>{product._id}</td>
                   <td>{product.name}</td>
