@@ -170,7 +170,7 @@ const updateUser = asyncHandler(async (req, res) => {
 
   if (user) {
     user.name = req.body.name || user.name;
-    user.wmail = req.body.email || user.email;
+    user.email = req.body.email || user.email;
     user.isAdmin = Boolean(req.body.isAdmin);
 
     const updateUser = await user.save();
@@ -183,7 +183,7 @@ const updateUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(404);
-    throw new Error("User not found");
+    throw new Error("User not found.");
   }
 });
 
